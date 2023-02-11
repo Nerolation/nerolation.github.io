@@ -58,8 +58,8 @@ canvas {
    <br><br>
    <div style ="float:left;font-size:18px;color:#0F1419">Built with 🖤 by <a href="https://twitter.com/nero_eth">Toni Wahrstätter</a></div>
    <br><br>
-<canvas width="1000" height="1800" ></canvas>
-<svg width="1000" height="1800" ></svg>
+<canvas width="1000" height="1600" ></canvas>
+<svg width="1000" height="1600" ></svg>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js" charset="utf-8" type="text/javascript"></script>
 <script src="sankey.js" charset="utf-8" type="text/javascript"></script>
@@ -68,7 +68,7 @@ canvas {
 
 var margin = {top: 19, right: 10, bottom: 6, left: 10},
     width = 1000 - margin.left - margin.right,
-    height = 750 - margin.top - margin.bottom;
+    height = 800 - margin.top - margin.bottom;
 
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return formatNumber(d) + " blocks"; },
@@ -190,7 +190,7 @@ function myfunction(energy) {
  function particleEdgeCanvasPath(elapsed) {
    var context = d3.select("canvas").node().getContext("2d")
 
-   context.clearRect(0,0,1000,1000);
+   context.clearRect(0,0,1000,1600);
 
      context.fillStyle = "gray";
      context.lineWidth = "1px";
