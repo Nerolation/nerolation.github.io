@@ -72,7 +72,7 @@ var margin = {top: 19, right: 10, bottom: 6, left: 10},
 
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return formatNumber(d) + " blocks"; },
-    color = d3.scale.category20();
+    color = d3.scale.category10();
 
 var svg = d3.select("svg")
     .attr("width", width + margin.left + margin.right)
@@ -87,117 +87,124 @@ var sankey = d3.sankey()
 
 var path = sankey.link();
 
-var freqCounter = 99;
+var freqCounter = 1;
 
-var energy = JSON.parse('{"nodes":[{"name":"Flashbots"},{"name":"Bloxroute (max profit)"},{"name":"Ultrasound"},{"name":"Agnostic Gnosis"},{"name":"Blocknative"},{"name":"Bloxroute (regulated)"},{"name":"Eden"},{"name":"Relayooor"},{"name":"Bloxroute (ethical)"},{"name":"Manifold"},{"name":"Aestus"},{"name":"Bitstamp"},{"name":"Stakewise"},{"name":"Okx"},{"name":"Staked.us"},{"name":"Cream"},{"name":"Bitfinex"},{"name":"Abyss finance"},{"name":"Huobi"},{"name":"Stkr"},{"name":"Stakehound"},{"name":"Gate.io"},{"name":"Celsius"},{"name":"Stakefish"},{"name":"Wex exchange"},{"name":"Poloniex"},{"name":"Kraken"},{"name":"Figment"},{"name":"Bitcoin suisse"},{"name":"Lido"},{"name":"Rocketpool"},{"name":"Piedao"},{"name":"Binance"},{"name":"Infstones"},{"name":"Coinbase"},{"name":"Tokenpocket"},{"name":"Everstake pool"},{"name":"Cryptostake.com"},{"name":"Sharedstake"},{"name":"Frax finance"},{"name":"Harbour"},{"name":"Blox staking"},{"name":"Beaverbuild"},{"name":"Flashbots"},{"name":"builder0x69"},{"name":"BloXroute"},{"name":"manta-build"},{"name":"Blocknative"},{"name":"https://eth"},{"name":"rsync-build"},{"name":"BuildAI (ht"},{"name":"s0e2t"},{"name":"viva ultras"},{"name":"0x83bee5179"},{"name":"lightspeedb"},{"name":"payload.de"},{"name":"Manifold"},{"name":"\\u00d8\\u0083\\u0001\\u000b\\u0000\\u0084geth "},{"name":"youtube.com"},{"name":"geth go1.18"},{"name":"s0e2f"},{"name":"nfactorial."},{"name":"FC"},{"name":"0xa5eec32c4"},{"name":"antbuilder"},{"name":"Titan"},{"name":"mars"},{"name":"0x8e2b5d114"},{"name":"0xa18fdb012"},{"name":"\\u00d8\\u0083\\u0001\\n\\u001a\\u0084geth "},{"name":"0xaf38aea3f"},{"name":"0x812b4a9b2"},{"name":"I can haz b"},{"name":"\\u00d9\\u0083\\u0001\\n\\u0017\\u0084geth\\u0089"},{"name":"0xb59d34967"},{"name":"tie a knot "}],"links":[{"source":43,"target":0,"value":1328},{"source":0,"target":29,"value":1011},{"source":44,"target":0,"value":995},{"source":42,"target":1,"value":827},{"source":42,"target":0,"value":630},{"source":1,"target":29,"value":567},{"source":45,"target":1,"value":554},{"source":0,"target":34,"value":466},{"source":1,"target":34,"value":420},{"source":0,"target":32,"value":343},{"source":46,"target":1,"value":324},{"source":0,"target":26,"value":313},{"source":44,"target":2,"value":297},{"source":42,"target":2,"value":250},{"source":47,"target":4,"value":197},{"source":44,"target":3,"value":168},{"source":46,"target":0,"value":163},{"source":1,"target":26,"value":153},{"source":43,"target":2,"value":143},{"source":2,"target":29,"value":141},{"source":0,"target":27,"value":139},{"source":48,"target":0,"value":120},{"source":42,"target":3,"value":119},{"source":4,"target":29,"value":108},{"source":0,"target":23,"value":96},{"source":2,"target":28,"value":93},{"source":1,"target":23,"value":92},{"source":43,"target":3,"value":73},{"source":3,"target":26,"value":64},{"source":46,"target":5,"value":61},{"source":0,"target":22,"value":60},{"source":45,"target":6,"value":58},{"source":6,"target":29,"value":53},{"source":2,"target":26,"value":53},{"source":2,"target":14,"value":52},{"source":3,"target":14,"value":51},{"source":49,"target":1,"value":50},{"source":5,"target":32,"value":48},{"source":3,"target":28,"value":48},{"source":0,"target":14,"value":47},{"source":1,"target":28,"value":43},{"source":45,"target":5,"value":43},{"source":2,"target":27,"value":37},{"source":50,"target":0,"value":36},{"source":3,"target":29,"value":33},{"source":46,"target":2,"value":33},{"source":0,"target":17,"value":33},{"source":1,"target":14,"value":32},{"source":2,"target":30,"value":31},{"source":2,"target":18,"value":30},{"source":5,"target":29,"value":27},{"source":0,"target":30,"value":27},{"source":46,"target":3,"value":27},{"source":4,"target":32,"value":21},{"source":49,"target":0,"value":21},{"source":53,"target":0,"value":21},{"source":50,"target":1,"value":21},{"source":51,"target":0,"value":19},{"source":54,"target":0,"value":18},{"source":45,"target":8,"value":17},{"source":56,"target":9,"value":16},{"source":44,"target":7,"value":16},{"source":57,"target":6,"value":15},{"source":3,"target":27,"value":15},{"source":58,"target":0,"value":15},{"source":2,"target":12,"value":15},{"source":0,"target":20,"value":15},{"source":1,"target":30,"value":14},{"source":52,"target":2,"value":14},{"source":3,"target":18,"value":13},{"source":0,"target":31,"value":13},{"source":0,"target":13,"value":12},{"source":55,"target":0,"value":12},{"source":49,"target":2,"value":12},{"source":48,"target":2,"value":12},{"source":2,"target":39,"value":12},{"source":1,"target":13,"value":11},{"source":2,"target":23,"value":11},{"source":1,"target":18,"value":10},{"source":2,"target":11,"value":10},{"source":3,"target":11,"value":10},{"source":1,"target":17,"value":10},{"source":59,"target":6,"value":9},{"source":3,"target":23,"value":9},{"source":49,"target":3,"value":9},{"source":52,"target":3,"value":9},{"source":8,"target":29,"value":8},{"source":0,"target":15,"value":8},{"source":6,"target":32,"value":8},{"source":0,"target":21,"value":8},{"source":0,"target":33,"value":8},{"source":3,"target":39,"value":8},{"source":9,"target":29,"value":7},{"source":2,"target":19,"value":7},{"source":2,"target":16,"value":7},{"source":62,"target":0,"value":7},{"source":3,"target":12,"value":7},{"source":55,"target":2,"value":7},{"source":50,"target":5,"value":7},{"source":1,"target":27,"value":6},{"source":45,"target":0,"value":6},{"source":61,"target":0,"value":6},{"source":60,"target":0,"value":6},{"source":50,"target":2,"value":6},{"source":3,"target":24,"value":6},{"source":63,"target":6,"value":5},{"source":0,"target":19,"value":5},{"source":5,"target":21,"value":5},{"source":4,"target":14,"value":5},{"source":4,"target":23,"value":5},{"source":5,"target":23,"value":5},{"source":1,"target":39,"value":5},{"source":2,"target":17,"value":5},{"source":0,"target":37,"value":5},{"source":49,"target":5,"value":5},{"source":3,"target":16,"value":4},{"source":4,"target":34,"value":4},{"source":1,"target":25,"value":4},{"source":65,"target":0,"value":4},{"source":6,"target":28,"value":4},{"source":5,"target":28,"value":4},{"source":51,"target":1,"value":4},{"source":0,"target":18,"value":3},{"source":0,"target":40,"value":3},{"source":67,"target":0,"value":3},{"source":64,"target":0,"value":3},{"source":66,"target":0,"value":3},{"source":5,"target":33,"value":3},{"source":4,"target":33,"value":3},{"source":52,"target":7,"value":3},{"source":5,"target":14,"value":3},{"source":0,"target":12,"value":3},{"source":54,"target":2,"value":3},{"source":7,"target":39,"value":3},{"source":4,"target":39,"value":3},{"source":2,"target":24,"value":3},{"source":51,"target":3,"value":3},{"source":68,"target":6,"value":2},{"source":9,"target":26,"value":2},{"source":9,"target":27,"value":2},{"source":1,"target":11,"value":2},{"source":0,"target":11,"value":2},{"source":6,"target":34,"value":2},{"source":69,"target":0,"value":2},{"source":70,"target":0,"value":2},{"source":55,"target":7,"value":2},{"source":6,"target":23,"value":2},{"source":4,"target":30,"value":2},{"source":61,"target":2,"value":2},{"source":1,"target":35,"value":2},{"source":4,"target":28,"value":2},{"source":50,"target":3,"value":2},{"source":60,"target":5,"value":2},{"source":6,"target":18,"value":1},{"source":49,"target":10,"value":1},{"source":4,"target":26,"value":1},{"source":4,"target":21,"value":1},{"source":1,"target":16,"value":1},{"source":4,"target":11,"value":1},{"source":48,"target":9,"value":1},{"source":0,"target":25,"value":1},{"source":9,"target":25,"value":1},{"source":6,"target":25,"value":1},{"source":75,"target":0,"value":1},{"source":71,"target":0,"value":1},{"source":72,"target":0,"value":1},{"source":74,"target":0,"value":1},{"source":73,"target":0,"value":1},{"source":49,"target":7,"value":1},{"source":8,"target":14,"value":1},{"source":10,"target":14,"value":1},{"source":6,"target":30,"value":1},{"source":8,"target":30,"value":1},{"source":51,"target":2,"value":1},{"source":64,"target":2,"value":1},{"source":2,"target":38,"value":1},{"source":2,"target":41,"value":1},{"source":0,"target":39,"value":1},{"source":5,"target":39,"value":1},{"source":6,"target":24,"value":1},{"source":0,"target":24,"value":1},{"source":9,"target":24,"value":1},{"source":4,"target":17,"value":1},{"source":9,"target":28,"value":1},{"source":2,"target":36,"value":1},{"source":45,"target":3,"value":1},{"source":60,"target":3,"value":1}]}');
+var energy = JSON.parse('{"nodes":[{"name":"Flashbots","color":"#1f77b4"},{"name":"Bloxroute (max profit)","color":"#2ca02c"},{"name":"Ultrasound","color":"#aec7e8"},{"name":"Agnostic Gnosis","color":"#02de74"},{"name":"Blocknative","color":"#e377c2"},{"name":"Bloxroute (regulated)","color":"#d62728"},{"name":"Eden","color":"#8c564b"},{"name":"Relayooor","color":"#ff7f0e"},{"name":"Bloxroute (ethical)","color":"#ff7f0e"},{"name":"Manifold","color":"#9467bd"},{"name":"Aestus","color":"#02e382"},{"name":"Bitstamp","color":"#1f78b4"},{"name":"Stakewise","color":"#fb9a99"},{"name":"Okx","color":"#d9d9d9"},{"name":"Staked.us","color":"#fccde5"},{"name":"Cream","color":"#bc80bd"},{"name":"Bitfinex","color":"#89DCAC"},{"name":"Abyss finance","color":"#ff7f00"},{"name":"Huobi","color":"#ccebc5"},{"name":"Stkr","color":"#ffffb3"},{"name":"Stakehound","color":"#fdbf6f"},{"name":"Gate.io","color":"#5A1F6B"},{"name":"Celsius","color":"#D53E02"},{"name":"Stakefish","color":"#b2df8a"},{"name":"Wex exchange","color":"#8c564b"},{"name":"Poloniex","color":"#9467bd"},{"name":"Kraken","color":"#bebada"},{"name":"Figment","color":"#b3de69"},{"name":"Bitcoin suisse","color":"#fdb462"},{"name":"Lido","color":"#8dd3c7"},{"name":"Rocketpool","color":"#e31a1c"},{"name":"Piedao","color":"#a6cee3"},{"name":"Binance","color":"#80b1d3"},{"name":"Infstones","color":"#c5b0d5"},{"name":"Coinbase","color":"#fb8072"},{"name":"Tokenpocket","color":"#73B07E"},{"name":"Everstake pool","color":"#4ECB92"},{"name":"Cryptostake.com","color":"#D15070"},{"name":"Sharedstake","color":"#f7b6d2"},{"name":"Frax finance","color":"#69DE60"},{"name":"Harbour","color":"#7800C1"},{"name":"Blox staking","color":"#c7c7c7"},{"name":"Beaverbuild","color":"#F28AE9"},{"name":"Flashbots","color":"#1f77b4"},{"name":"builder0x69","color":"#EF6002"},{"name":"BloXroute","color":"#2ca02c"},{"name":"manta-build","color":"#8C321A"},{"name":"Blocknative","color":"##e377c2"},{"name":"https://eth","color":"#713B21"},{"name":"rsync-build","color":"#DB3C2A"},{"name":"BuildAI (ht","color":"#3E5D07"},{"name":"s0e2t","color":"#D06AD5"},{"name":"viva ultras","color":"#31F5C2"},{"name":"0x83bee5179","color":"#FCB04C"},{"name":"lightspeedb","color":"#53ABBF"},{"name":"payload.de","color":"#A33A62"},{"name":"Manifold","color":"#9467bd"},{"name":"\\u00d8\\u0083\\u0001\\u000b\\u0000\\u0084geth ","color":"#869873"},{"name":"youtube.com","color":"#7D62AD"},{"name":"geth go1.18","color":"#B7B6C5"},{"name":"s0e2f","color":"#CD276E"},{"name":"nfactorial.","color":"#7E7E85"},{"name":"FC","color":"#5DCF16"},{"name":"0xa5eec32c4","color":"#593C24"},{"name":"antbuilder","color":"#912C59"},{"name":"Titan","color":"#DA3B14"},{"name":"mars","color":"#AB0B5C"},{"name":"0x8e2b5d114","color":"#5DDF5A"},{"name":"0xa18fdb012","color":"#456A6A"},{"name":"\\u00d8\\u0083\\u0001\\n\\u001a\\u0084geth ","color":"#2430DE"},{"name":"0xaf38aea3f","color":"#BB73D3"},{"name":"0x812b4a9b2","color":"#B93779"},{"name":"I can haz b","color":"#F5E016"},{"name":"\\u00d9\\u0083\\u0001\\n\\u0017\\u0084geth\\u0089","color":"#2C5190"},{"name":"0xb59d34967","color":"#1A2673"},{"name":"tie a knot ","color":"#653221"}],"links":[{"source":43,"target":0,"value":1328},{"source":0,"target":29,"value":1011},{"source":44,"target":0,"value":995},{"source":42,"target":1,"value":827},{"source":42,"target":0,"value":630},{"source":1,"target":29,"value":567},{"source":45,"target":1,"value":554},{"source":0,"target":34,"value":466},{"source":1,"target":34,"value":420},{"source":0,"target":32,"value":343},{"source":46,"target":1,"value":324},{"source":0,"target":26,"value":313},{"source":44,"target":2,"value":297},{"source":42,"target":2,"value":250},{"source":47,"target":4,"value":197},{"source":44,"target":3,"value":168},{"source":46,"target":0,"value":163},{"source":1,"target":26,"value":153},{"source":43,"target":2,"value":143},{"source":2,"target":29,"value":141},{"source":0,"target":27,"value":139},{"source":48,"target":0,"value":120},{"source":42,"target":3,"value":119},{"source":4,"target":29,"value":108},{"source":0,"target":23,"value":96},{"source":2,"target":28,"value":93},{"source":1,"target":23,"value":92},{"source":43,"target":3,"value":73},{"source":3,"target":26,"value":64},{"source":46,"target":5,"value":61},{"source":0,"target":22,"value":60},{"source":45,"target":6,"value":58},{"source":6,"target":29,"value":53},{"source":2,"target":26,"value":53},{"source":2,"target":14,"value":52},{"source":3,"target":14,"value":51},{"source":49,"target":1,"value":50},{"source":5,"target":32,"value":48},{"source":3,"target":28,"value":48},{"source":0,"target":14,"value":47},{"source":1,"target":28,"value":43},{"source":45,"target":5,"value":43},{"source":2,"target":27,"value":37},{"source":50,"target":0,"value":36},{"source":3,"target":29,"value":33},{"source":46,"target":2,"value":33},{"source":0,"target":17,"value":33},{"source":1,"target":14,"value":32},{"source":2,"target":30,"value":31},{"source":2,"target":18,"value":30},{"source":5,"target":29,"value":27},{"source":0,"target":30,"value":27},{"source":46,"target":3,"value":27},{"source":4,"target":32,"value":21},{"source":49,"target":0,"value":21},{"source":53,"target":0,"value":21},{"source":50,"target":1,"value":21},{"source":51,"target":0,"value":19},{"source":54,"target":0,"value":18},{"source":45,"target":8,"value":17},{"source":56,"target":9,"value":16},{"source":44,"target":7,"value":16},{"source":57,"target":6,"value":15},{"source":3,"target":27,"value":15},{"source":58,"target":0,"value":15},{"source":2,"target":12,"value":15},{"source":0,"target":20,"value":15},{"source":1,"target":30,"value":14},{"source":52,"target":2,"value":14},{"source":3,"target":18,"value":13},{"source":0,"target":31,"value":13},{"source":0,"target":13,"value":12},{"source":55,"target":0,"value":12},{"source":49,"target":2,"value":12},{"source":48,"target":2,"value":12},{"source":2,"target":39,"value":12},{"source":1,"target":13,"value":11},{"source":2,"target":23,"value":11},{"source":1,"target":18,"value":10},{"source":2,"target":11,"value":10},{"source":3,"target":11,"value":10},{"source":1,"target":17,"value":10},{"source":59,"target":6,"value":9},{"source":3,"target":23,"value":9},{"source":49,"target":3,"value":9},{"source":52,"target":3,"value":9},{"source":8,"target":29,"value":8},{"source":0,"target":15,"value":8},{"source":6,"target":32,"value":8},{"source":0,"target":21,"value":8},{"source":0,"target":33,"value":8},{"source":3,"target":39,"value":8},{"source":9,"target":29,"value":7},{"source":2,"target":19,"value":7},{"source":2,"target":16,"value":7},{"source":62,"target":0,"value":7},{"source":3,"target":12,"value":7},{"source":55,"target":2,"value":7},{"source":50,"target":5,"value":7},{"source":1,"target":27,"value":6},{"source":45,"target":0,"value":6},{"source":61,"target":0,"value":6},{"source":60,"target":0,"value":6},{"source":50,"target":2,"value":6},{"source":3,"target":24,"value":6},{"source":63,"target":6,"value":5},{"source":0,"target":19,"value":5},{"source":5,"target":21,"value":5},{"source":4,"target":14,"value":5},{"source":4,"target":23,"value":5},{"source":5,"target":23,"value":5},{"source":1,"target":39,"value":5},{"source":2,"target":17,"value":5},{"source":0,"target":37,"value":5},{"source":49,"target":5,"value":5},{"source":3,"target":16,"value":4},{"source":4,"target":34,"value":4},{"source":1,"target":25,"value":4},{"source":65,"target":0,"value":4},{"source":6,"target":28,"value":4},{"source":5,"target":28,"value":4},{"source":51,"target":1,"value":4},{"source":0,"target":18,"value":3},{"source":0,"target":40,"value":3},{"source":67,"target":0,"value":3},{"source":64,"target":0,"value":3},{"source":66,"target":0,"value":3},{"source":5,"target":33,"value":3},{"source":4,"target":33,"value":3},{"source":52,"target":7,"value":3},{"source":5,"target":14,"value":3},{"source":0,"target":12,"value":3},{"source":54,"target":2,"value":3},{"source":7,"target":39,"value":3},{"source":4,"target":39,"value":3},{"source":2,"target":24,"value":3},{"source":51,"target":3,"value":3},{"source":68,"target":6,"value":2},{"source":9,"target":26,"value":2},{"source":9,"target":27,"value":2},{"source":1,"target":11,"value":2},{"source":0,"target":11,"value":2},{"source":6,"target":34,"value":2},{"source":69,"target":0,"value":2},{"source":70,"target":0,"value":2},{"source":55,"target":7,"value":2},{"source":6,"target":23,"value":2},{"source":4,"target":30,"value":2},{"source":61,"target":2,"value":2},{"source":1,"target":35,"value":2},{"source":4,"target":28,"value":2},{"source":50,"target":3,"value":2},{"source":60,"target":5,"value":2},{"source":6,"target":18,"value":1},{"source":49,"target":10,"value":1},{"source":4,"target":26,"value":1},{"source":4,"target":21,"value":1},{"source":1,"target":16,"value":1},{"source":4,"target":11,"value":1},{"source":48,"target":9,"value":1},{"source":0,"target":25,"value":1},{"source":9,"target":25,"value":1},{"source":6,"target":25,"value":1},{"source":75,"target":0,"value":1},{"source":71,"target":0,"value":1},{"source":72,"target":0,"value":1},{"source":74,"target":0,"value":1},{"source":73,"target":0,"value":1},{"source":49,"target":7,"value":1},{"source":8,"target":14,"value":1},{"source":10,"target":14,"value":1},{"source":6,"target":30,"value":1},{"source":8,"target":30,"value":1},{"source":51,"target":2,"value":1},{"source":64,"target":2,"value":1},{"source":2,"target":38,"value":1},{"source":2,"target":41,"value":1},{"source":0,"target":39,"value":1},{"source":5,"target":39,"value":1},{"source":6,"target":24,"value":1},{"source":0,"target":24,"value":1},{"source":9,"target":24,"value":1},{"source":4,"target":17,"value":1},{"source":9,"target":28,"value":1},{"source":2,"target":36,"value":1},{"source":45,"target":3,"value":1},{"source":60,"target":3,"value":1}]}');
 console.log(energy);
 function myfunction(energy) {
   console.log(energy);
   sankey
-      .nodes(energy.nodes)
-      .links(energy.links)
-      .layout(2);
+     .nodes(energy.nodes)
+     .links(energy.links)
+     .layout(32);
 
-  var link = svg.append("g").selectAll(".link")
-      .data(energy.links)
-    .enter().append("path")
-      .attr("class", "link")
-      .attr("d", path)
-      .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-      .sort(function(a, b) { return b.dy - a.dy; });
+ var link = svg.append("g").selectAll(".link")
+     .data(energy.links)
+   .enter().append("path")
+     .attr("class", "link")
+     .attr("d", path)
+     .style("stroke-width", function(d) { return Math.max(1, d.dy); })
+     .sort(function(a, b) { return b.dy - a.dy; });
 
-  link.append("title")
-      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+ link.append("title")
+     .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
 
-  var node = svg.append("g").selectAll(".node")
-      .data(energy.nodes)
-    .enter().append("g")
-      .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-    .call(d3.behavior.drag()
-      .origin(function(d) { return d; })
-      .on("dragstart", function() { this.parentNode.appendChild(this); })
-      .on("drag", dragmove));
+ var node = svg.append("g").selectAll(".node")
+     .data(energy.nodes)
+   .enter().append("g")
+     .attr("class", "node")
+     .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+   .call(d3.behavior.drag()
+     .origin(function(d) { return d; })
+     .on("dragstart", function() { this.parentNode.appendChild(this); })
+     .on("drag", dragmove));
 
-  node.append("rect")
-      .attr("height", function(d) { return d.dy; })
-      .attr("width", sankey.nodeWidth())
-      .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
-      .style("stroke", "none")
-    .append("title")
-      .text(function(d) { return d.name + "\n" + format(d.value); });
+ node.append("rect")
+     .attr("height", function(d) { return d.dy; })
+     .attr("width", sankey.nodeWidth())
+     .style("fill", function(d) { return d.color = d.color; })
+     .style("stroke", "none")
+   .append("title")
+     .text(function(d) { return d.name + "\n" + format(d.value); });
 
-  node.append("text")
-      .attr("x", -6)
-      .attr("y", function(d) { return d.dy / 2; })
-      .attr("dy", ".35em")
-      .attr("text-anchor", "end")
-      .attr("transform", null)
-      .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x < width / 2; })
-      .attr("x", 6 + sankey.nodeWidth())
-      .attr("text-anchor", "start");
+ node.append("text")
+     .attr("x", -6)
+     .attr("y", function(d) { return d.dy / 2; })
+     .attr("dy", ".35em")
+     .attr("text-anchor", "end")
+     .attr("transform", null)
+     .text(function(d) { return d.name; })
+   .filter(function(d) { return d.x < width / 2; })
+     .attr("x", 6 + sankey.nodeWidth())
+     .attr("text-anchor", "start");
 
-  function dragmove(d) {
-    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
-    sankey.relayout();
-    link.attr("d", path);
-  }
+ function dragmove(d) {
+   d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
+   sankey.relayout();
+   link.attr("d", path);
+ }
 
-  var linkExtent = d3.extent(energy.links, function (d) {return d.value});
-  var frequencyScale = d3.scale.linear().domain(linkExtent).range([1,100]);
-  var particleSize = d3.scale.linear().domain(linkExtent).range([1,5]);
+ var linkExtent = d3.extent(energy.links, function (d) {return d.value});
+ var frequencyScale = d3.scale.linear().domain(linkExtent).range([0.05,1]);
+ var particleSize = d3.scale.linear().domain(linkExtent).range([1,5]);
 
 
-  energy.links.forEach(function (link) {
-    link.freq = frequencyScale(link.value);
-    link.particleSize = particleSize(link.value);
-    link.particleColor = d3.scale.linear().domain([1,1000]).range([link.source.color, link.target.color]);
-  })
+ energy.links.forEach(function (link) {
+   link.freq = frequencyScale(link.value);
+   link.particleSize = particleSize(link.value);
+   link.particleColor = d3.scale.linear().domain([0,100])
+   .range([link.source.color, link.target.color]);
+ })
 
-  var t = d3.timer(tick, 1000);
-  var particles = [];
+ var t = d3.timer(tick, 1000);
+ var particles = [];
 
-  function tick(elapsed, time) {
+ function tick(elapsed, time) {
 
-    particles = particles.filter(function (d) {return d.time > (elapsed - 1000)});
+   particles = particles.filter(function (d) {return d.current < d.path.getTotalLength()});
 
-    if (freqCounter > 40) {
-      freqCounter = 1;
-    }
+   d3.selectAll("path.link")
+   .each(
+     function (d) {
+//        if (d.freq < 1) {
+       for (var x = 0;x<2;x++) {
+         var offset = (Math.random() - .5) * (d.dy - 4);
+         if (Math.random() < d.freq/10) {
+           var length = this.getTotalLength();
+           particles.push({link: d, time: elapsed, offset: offset, path: this, length: length, animateTime: length, speed: 0.5 + (Math.random())})
+         }
+       }
 
-    d3.selectAll("path.link")
-    .each(
-      function (d) {
-        if (d.freq >= freqCounter) {
-          var offset = (Math.random() - .01) * d.dy;
-          particles.push({link: d, time: elapsed, offset: offset, path: this})
-        }
-      });
+//        }
+/*        else {
+         for (var x = 0; x<d.freq; x++) {
+           var offset = (Math.random() - .5) * d.dy;
+           particles.push({link: d, time: elapsed, offset: offset, path: this})
+         }
+       } */
+     });
 
-    particleEdgeCanvasPath(elapsed);
-    freqCounter++;
+   particleEdgeCanvasPath(elapsed);
+ }
 
-  }
+ function particleEdgeCanvasPath(elapsed) {
+   var context = d3.select("canvas").node().getContext("2d")
 
-  function particleEdgeCanvasPath(elapsed) {
-    var context = d3.select("canvas").node().getContext("2d")
+   context.clearRect(0,0,1000,1000);
 
-    context.clearRect(0,0,1000,1000);
-
-      context.fillStyle = "gray";
-      context.lineWidth = "1px";
-    for (var x in particles) {
-        var currentTime = elapsed - particles[x].time;
-        var currentPercent = currentTime / 1000 * particles[x].path.getTotalLength();
-        var currentPos = particles[x].path.getPointAtLength(currentPercent)
-        context.beginPath();
-      context.fillStyle = particles[x].link.particleColor(currentTime);
-        context.arc(currentPos.x,currentPos.y + particles[x].offset,particles[x].link.particleSize,0,2*Math.PI);
-        context.fill();
-    }
-  }
-
+     context.fillStyle = "gray";
+     context.lineWidth = "1px";
+   for (var x in particles) {
+       var currentTime = elapsed - particles[x].time;
+//        var currentPercent = currentTime / 1000 * particles[x].path.getTotalLength();
+       particles[x].current = currentTime * 0.15 * particles[x].speed;
+       var currentPos = particles[x].path.getPointAtLength(particles[x].current);
+       context.beginPath();
+     context.fillStyle = particles[x].link.particleColor(0);
+       context.arc(currentPos.x,currentPos.y + particles[x].offset,particles[x].link.particleSize,0,2*Math.PI);
+       context.fill();
+   }
+ }
 
 };
 myfunction(energy);
